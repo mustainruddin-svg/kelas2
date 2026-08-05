@@ -1315,6 +1315,7 @@ body {
 <button class="fab" id="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script data-page-script>
+(function(){
 // ── NAVIGATION ──
 function showSection(name) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
@@ -1338,4 +1339,10 @@ window.addEventListener('scroll', function _fabScroll(){
   if(!fab){ window.removeEventListener('scroll', _fabScroll); return; }
   fab.classList.toggle('show', window.scrollY > 400);
 });
+
+// Diakses dari onclick inline di HTML — harus di-expose ke window
+// karena berada di dalam IIFE (tidak lagi otomatis jadi variabel global).
+window.showSection = showSection;
+window.toggleAccordion = toggleAccordion;
+})();
 </script>
