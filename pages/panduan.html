@@ -213,6 +213,7 @@
 </div>
 
 <script data-page-script>
+(function(){
 var SECTIONS = [
   {
     id:'etika', emoji:'🤝', card:'mc-etika', tag:'Kode Etik',
@@ -338,4 +339,9 @@ document.getElementById('modalClose').addEventListener('click', () => document.g
 document.getElementById('modal').addEventListener('click', (e) => { if (e.target.id === 'modal') e.currentTarget.classList.remove('show'); });
 
 renderGrid();
+
+// Diakses dari onclick inline di HTML (dibuat dinamis lewat renderGrid) — harus
+// di-expose ke window karena berada di dalam IIFE.
+window.bukaTopik = bukaTopik;
+})();
 </script>
