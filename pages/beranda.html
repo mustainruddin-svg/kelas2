@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal Kelas VI - SIT Ar-Rahmah Makassar</title>
+<title>Portal Kelas II - SIT Ar-Rahmah Makassar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -20,8 +20,8 @@
   .ar-page a{text-decoration:none;color:inherit}
   .ar-header{background:var(--primary);padding:16px 20px 12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.04)}
   .ar-header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.ar-greeting{font-size:13px;color:var(--ink-soft)}
-.ar-greeting strong{display:block;font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--ink);margin-top:2px}
+.ar-greeting{font-size:13px;color:#fff}
+.ar-greeting strong{display:block;font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#fff;margin-top:2px}
   .ar-avatar{width:44px;height:44px;border-radius:14px;object-fit:cover;border:2px solid var(--primary-soft);background:var(--primary-soft)}
   .ar-search-wrap{position:relative}
   .ar-search{width:100%;height:44px;border-radius:14px;border:none;background:var(--bg);padding:0 44px 0 16px;font-size:13px;color:var(--ink);outline:none;font-family:'Plus Jakarta Sans',sans-serif}
@@ -140,6 +140,10 @@
   @keyframes ar-spin{to{transform:rotate(360deg)}}
   .ar-state{padding:24px 20px;text-align:center;font-size:13px;color:var(--ink-soft)}
   .ar-state-error{color:var(--accent-deep);font-weight:600}
+
+  .ar-wali-vertical{display:flex;flex-direction:column;gap:12px;padding:0 20px}
+  .ar-wali-vertical .ar-hcard{flex:none;width:auto;scroll-snap-align:none}
+  .ar-wali-vertical .ar-hcard:active{transform:scale(.98)}
 </style>
 </head>
 <body>
@@ -151,7 +155,7 @@
         Assalamu'alaikum 👋
         <strong>Ayah &amp; Bunda</strong>
       </div>
-      <img class="ar-avatar" src="images/avatar-parent.webp" alt="Avatar" onerror="this.style.display='none';">
+      <img class="ar-avatar" src="assets/avatar-parent.webp" alt="Avatar" onerror="this.style.display='none';">
     </div>
     <div class="ar-search-wrap">
       <input class="ar-search" type="text" placeholder="Cari info, jadwal, atau kontak..." id="searchInput">
@@ -166,9 +170,9 @@
       <div class="ar-hero-text">
         <span class="ar-hero-eyebrow">SIT Ar-Rahmah Makassar</span>
         <h1>Selamat Datang di Portal Kelas II</h1>
-        <p>Mari bersama menumbuhkan ananda yang <strong>religius, cerdas, dan kolaboratif</strong>.</p>
+        <p>Mari bersama menumbuhkan ananda yang <strong>religius, smart, collaborative</strong>.</p>
       </div>
-      <img class="ar-hero-img" src="images/illust-hero.webp" alt="Ilustrasi" onerror="this.style.display='none';">
+      <img class="ar-hero-img" src="assets/illust-hero.webp" alt="Ilustrasi" onerror="this.style.display='none';">
     </div>
   </section>
 
@@ -209,7 +213,7 @@
   <!-- ===== BANNER SAVA ===== -->
   <a class="ar-banner" href="https://sava.arrahmahmks.sch.id/walisd" target="_blank" rel="noopener noreferrer">
     <div class="ar-banner-inner">
-      <img class="ar-banner-img" src="images/illust-sava.webp" alt="SAVA" onerror="this.style.display='none';">
+      <img class="ar-banner-img" src="assets/illust-sava.webp" alt="SAVA" onerror="this.style.display='none';">
       <div class="ar-banner-text">
         <h3>Pantau Nilai di SAVA</h3>
         <p>Lihat capaian belajar dan perkembangan ananda kapan saja.</p>
@@ -222,7 +226,7 @@
   <section>
     <div class="ar-sec-head">
       <h2>Pesan Wali Kelas</h2>
-      <a href="#">Lihat Semua →</a>
+      <a href="#" id="waliToggle" onclick="toggleWaliView(event)">Lihat Semua →</a>
     </div>
     <div class="ar-hscroll" id="waliScroll"></div>
   </section>
@@ -239,7 +243,7 @@
   <!-- ===== JELAJAH KELAS II ===== -->
   <section>
     <div class="ar-sec-head">
-      <h2>Jelajah Kelas VI</h2>
+      <h2>Jelajah Kelas II</h2>
     </div>
     <div class="ar-menu">
       <a class="ar-menu-item" href="#/kalender">
@@ -279,7 +283,7 @@
         </span>
         <span class="ar-menu-text">
           <span class="ar-menu-judul">Info Kelas</span>
-          <span class="ar-menu-sub">Aturan &amp; tata tertib kelas VI</span>
+          <span class="ar-menu-sub">Aturan &amp; tata tertib kelas II</span>
         </span>
         <svg class="ar-menu-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
       </a>
@@ -314,18 +318,18 @@
     </div>
     <div class="ar-kp-list">
       <div class="ar-kp-card">
-        <img class="ar-kp-avatar" src="images/kp-noer.webp" alt="Noer Chalish" style="object-fit:cover;" onerror="this.outerHTML='<div class=\'ar-kp-avatar\'>NC</div>';">
+        <img class="ar-kp-avatar" src="assets/kp-nurul.webp" alt="Nurul Wahida" style="object-fit:cover;" onerror="this.outerHTML='<div class=\'ar-kp-avatar\'>NC</div>';">
         <div class="ar-kp-info">
-          <div class="ar-kp-nama">Noer Chalish, S.E.</div>
-          <div class="ar-kp-jabatan">Bendahara Kelas Atas (IV, V dan VI)</div>
-          <a class="ar-kp-wa" href="https://wa.me/6288705873291" target="_blank" rel="noopener noreferrer">
+          <div class="ar-kp-nama">Nurul Wahida Istiqomah, S.ST.</div>
+          <div class="ar-kp-jabatan">Bendahara Kelas Bawah (I, II dan III)</div>
+          <a class="ar-kp-wa" href="https://wa.me/6282355185518" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            0887-0587-3291
+            0823-5518-5518
           </a>
         </div>
       </div>
       <div class="ar-kp-card">
-        <img class="ar-kp-avatar" src="images/kp-masrudi.webp" alt="Ust. Masrudi" style="object-fit:cover;" onerror="this.outerHTML='<div class=\'ar-kp-avatar\'>UM</div>';">
+        <img class="ar-kp-avatar" src="assets/kp-masrudi.webp" alt="Ust. Masrudi" style="object-fit:cover;" onerror="this.outerHTML='<div class=\'ar-kp-avatar\'>UM</div>';">
         <div class="ar-kp-info">
           <div class="ar-kp-nama">Ust. Masrudi</div>
           <div class="ar-kp-jabatan">Koordinator Mobil Jemputan</div>
@@ -336,7 +340,7 @@
         </div>
       </div>
       <div class="ar-kp-card">
-        <img class="ar-kp-avatar" src="images/kp-rachmat.webp" alt="Rachmat Arsyad" style="object-fit:cover;" onerror="this.outerHTML='<div class=\'ar-kp-avatar\'>RA</div>';">
+        <img class="ar-kp-avatar" src="assets/kp-rachmat.webp" alt="Rachmat Arsyad" style="object-fit:cover;" onerror="this.outerHTML='<div class=\'ar-kp-avatar\'>RA</div>';">
         <div class="ar-kp-info">
           <div class="ar-kp-nama">Rachmat Arsyad, S.IP.</div>
           <div class="ar-kp-jabatan">Administrasi dan Seragam</div>
@@ -435,13 +439,14 @@
   <div class="ar-toast" id="arToast">Nomor rekening disalin!</div>
 
 <script data-page-script>
+(function(){
   var API_URL = 'https://script.google.com/macros/s/AKfycbzv0OVTTWrsjdE2GRtUvyCmbwbFDEp9ZLOtY73WBxnjGHAeXMcj37olgA9znJCULTG_/exec';
   var WALI_DATA = [];
   var INFO_DATA = [];
 
   // Data statis untuk fitur pencarian (Kontak Person & Menu Navigasi)
   var KONTAK_DATA = [
-    { nama: 'Noer Chalish, S.E.', jabatan: 'Bendahara Kelas Atas (IV, V dan VI)', wa: 'https://wa.me/6288705873291' },
+    { nama: 'Nurul Wahida Istiqomah, S.ST.', jabatan: 'Bendahara Kelas Bawah (I, II dan III)', wa: 'https://wa.me/6282355185518' },
     { nama: 'Ust. Masrudi', jabatan: 'Koordinator Mobil Jemputan', wa: 'https://wa.me/6281242444397' },
     { nama: 'Rachmat Arsyad, S.IP.', jabatan: 'Administrasi dan Seragam', wa: 'https://wa.me/628114418911' }
   ];
@@ -449,7 +454,7 @@
     { judul: 'Kalender Akademik', sub: 'Agenda & jadwal kegiatan semester', href: '#/kalender' },
     { judul: 'Budaya & Pembiasaan', sub: 'Nilai & rutinitas harian ananda', href: '#/budaya' },
     { judul: 'Galeri Kegiatan', sub: 'Momen seru ananda di kelas', href: '#/galeri' },
-    { judul: 'Info Kelas (Aturan)', sub: 'Aturan & tata tertib kelas VI', href: '#/aturan' },
+    { judul: 'Info Kelas (Aturan)', sub: 'Aturan & tata tertib kelas II', href: '#/aturan' },
     { judul: 'Buku Saku Mitra Orang Tua', sub: 'Panduan mendampingi ananda di rumah', href: '#/panduan' },
     { judul: 'Portal Pengaduan', sub: 'Sampaikan aspirasi & masukan Bapak/Ibu', href: 'https://pengaduan.arrahmahsulawesi.org/', external: true }
   ];
@@ -768,8 +773,34 @@
       });
   }
 
+  var waliExpanded = false;
+  function toggleWaliView(e){
+    e.preventDefault();
+    var scrollEl = document.getElementById('waliScroll');
+    var toggleEl = document.getElementById('waliToggle');
+    if(!scrollEl) return;
+    waliExpanded = !waliExpanded;
+    if(waliExpanded){
+      scrollEl.classList.remove('ar-hscroll');
+      scrollEl.classList.add('ar-wali-vertical');
+      toggleEl.textContent = 'Tampilkan Ringkas ←';
+    } else {
+      scrollEl.classList.remove('ar-wali-vertical');
+      scrollEl.classList.add('ar-hscroll');
+      toggleEl.textContent = 'Lihat Semua →';
+    }
+  }
+
   muatBeranda();
   initSearch();
+
+  // Diakses dari onclick inline di HTML — harus di-expose ke window
+  // karena berada di dalam IIFE (tidak lagi otomatis jadi variabel global).
+  window.toggleWaliView = toggleWaliView;
+  window.copyRek = copyRek;
+  window.tutupModal = tutupModal;
+  window.bukaModal = bukaModal;
+})();
 </script>
 </div>
 </body>
